@@ -66,6 +66,16 @@ cc.Class({
     onLoad() {
         this.initPhysics()
 
+        // Add '모은 금액' label
+        let scoreTitle = new cc.Node('scoreTitle');
+        let label = scoreTitle.addComponent(cc.Label);
+        label.string = "모은 금액";
+        label.fontSize = 30;
+        label.lineHeight = 30;
+        scoreTitle.color = new cc.Color(0, 0, 0, 255);
+        scoreTitle.parent = this.node;
+        scoreTitle.setPosition(-258, 460); // Position it right above the score
+
         this.isCreating = false
         this.fruitCount = 0
         this.score = 0
