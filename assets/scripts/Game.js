@@ -76,6 +76,19 @@ cc.Class({
         scoreTitle.parent = this.node;
         scoreTitle.setPosition(-258, 460); // Position it right above the score
 
+        // Load Game Logo
+        var self = this;
+        cc.resources.load("logo", cc.SpriteFrame, function (err, spriteFrame) {
+            if (!err) {
+                let logoNode = new cc.Node('GameLogo');
+                let sprite = logoNode.addComponent(cc.Sprite);
+                sprite.spriteFrame = spriteFrame;
+                logoNode.parent = self.node;
+                logoNode.setPosition(0, 360); // Position it at the top
+                logoNode.scale = 0.35;
+            }
+        });
+
         this.isCreating = false
         this.fruitCount = 0
         this.score = 0
